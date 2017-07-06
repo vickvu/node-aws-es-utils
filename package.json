@@ -1,0 +1,44 @@
+{
+  "name": "aws-es-utils",
+  "version": "0.5.0",
+  "description": "Utilities to connect with Amazon Elasticsearch Service (using AWS signed request)",
+  "repository": "https://github.com/vickvu/node-aws-es-utils",
+  "bugs": "https://github.com/vickvu/node-aws-es-utils/issues",
+  "keywords": [
+    "elasticsearch",
+    "aws",
+    "amazon",
+    "es",
+    "request",
+    "signed",
+    "utils"
+  ],
+  "main": "index.js",
+  "devDependencies": {
+    "aws-sdk": "^2.80.0",
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-env": "^1.6.0",
+    "elasticsearch": "^13.2.0",
+    "eslint": "^4.1.1",
+    "mocha": "^3.4.2",
+    "nock": "^9.0.13",
+    "require-lint": "^1.2.0",
+    "should": "^11.2.1",
+    "sinon": "^2.3.6"
+  },
+  "scripts": {
+    "test": "npm run lint && mocha --compilers js:babel-register test",
+    "lint": "require-lint --ignore-missing aws-sdk --ignore-missing elasticsearch && eslint index.js 'src/**/*.js' 'test/**/*.js'",
+    "prepublish": "npm run test && npm run build",
+    "build": "npm run build-node4; npm run build-node6; npm run build-node8",
+    "build-node4": "BABEL_ENV=node4 babel src --out-dir target/node4",
+    "build-node6": "BABEL_ENV=node6 babel src --out-dir target/node6",
+    "build-node8": "BABEL_ENV=node8 babel src --out-dir target/node8"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "author": "Vick Vu <me@vick.vu>",
+  "license": "Apache-2.0"
+}
