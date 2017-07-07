@@ -1,3 +1,4 @@
+--compilers js:babel-register
 --reporter spec
 --recursive
 --require test/spec-helper.js

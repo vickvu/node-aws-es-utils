@@ -25,6 +25,7 @@
   },
   "globals": {
     "SRC": false,
-    "TEST": false
+    "TEST": false,
+    "MAIN": false
   }
 }

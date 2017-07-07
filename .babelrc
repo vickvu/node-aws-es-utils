@@ -20,6 +20,9 @@
           "targets": { "node": "8" }
         }]
       ]
+    },
+    "test": {
+      "plugins": ["istanbul"]
     }
   }
 }

@@ -1,6 +1,7 @@
 # AWS Elasticsearch Utils
 
 [![NPM](https://nodei.co/npm/aws-es-utils.png)](https://npmjs.org/package/aws-es-utils)
+
 [![Build Status](https://travis-ci.org/vickvu/node-aws-es-utils.svg?branch=master)](https://travis-ci.org/vickvu/node-aws-es-utils)
 [![Coverage Status](https://coveralls.io/repos/github/vickvu/node-aws-es-utils/badge.svg?branch=master)](https://coveralls.io/github/vickvu/node-aws-es-utils?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/github/vickvu/node-aws-es-utils/badge.svg)](https://snyk.io/test/github/vickvu/node-aws-es-utils)
