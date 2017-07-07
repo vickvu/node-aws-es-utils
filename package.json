@@ -4,6 +4,7 @@
   "description": "Utilities to connect with Amazon Elasticsearch Service (using AWS signed request)",
   "repository": "https://github.com/vickvu/node-aws-es-utils",
   "bugs": "https://github.com/vickvu/node-aws-es-utils/issues",
+  "homepage": "https://github.com/vickvu/node-aws-es-utils",
   "keywords": [
     "elasticsearch",
     "aws",
