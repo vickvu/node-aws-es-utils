@@ -82,34 +82,41 @@ exports.createESConnectorClass = function(opts) {
       requestStream.on('error', cleanUp);
       requestStream.setNoDelay(true);
       requestStream.setSocketKeepAlive(true);
-      return function () {
-        requestStream.abort();
-      };
+      return requestStream;
     }
 
     request(params, callback) {
       if (!this.awsRequestSigning) {
         return super.request(params, callback);
       }
+      let aborted = false;
+      let requestStream = null;
       if (!this.awsCredential) {
-        let aborted = false;
-        let abortFunction = null;
         this.awsCredentialEvent.once('finish', (err) => {
           if (!aborted) {
             if (err) {
               return callback(err);
             }
-            abortFunction = this.makeESRequest(params, callback);
+            this.awsCredential.get(() => {
+              requestStream = this.makeESRequest(params, callback);
+            });
           }
         });
-        return function() {
-          aborted = true;
-          if (abortFunction) {
-            abortFunction();
+      } else {
+        this.awsCredential.get(() => {
+          if (!aborted) {
+            requestStream = this.makeESRequest(params, callback);
           }
-        };
+        });
       }
-      return this.makeESRequest(params, callback);
+      return function () {
+        if (!aborted) {
+          aborted = true;
+          if (requestStream) {
+            requestStream.abort();
+          }
+        }
+      };
     }
   };
 };
