@@ -105,6 +105,5 @@ describe('createESConnectorClass', function() {
         });
       });
     });
-
   });
 });

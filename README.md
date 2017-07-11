@@ -14,18 +14,17 @@ var esHttpConnector = require('elasticsearch/src/lib/connectors/http');
 var AWS = require('aws-sdk');
 var awsEs = require('aws-es-utils');
 var let client = new elasticsearch.Client({
-  host: 'https://es-host:9200',
+  host: 'https://xxxx.ap-southeast-2.es.amazonaws.com',
   connectionClass: awsEs.createESConnectorClass({
     AWS: AWS,
     superClass: esHttpConnector
   }),
-  awsRequestSigning: true,
-  awsRegion: 'ap-southeast-2'
+  awsRequestSigning: true
 });
 ```
 Extra [config](https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/configuration.html) to Elasticsearch client constructor
  - `awsRequestSigning` (boolean): enable AWS request signing
- - `awsRegion` (string): [AWS region](http://docs.aws.amazon.com/general/latest/gr/rande.html)
+ - `awsRegion` (string | optional): [AWS region](http://docs.aws.amazon.com/general/latest/gr/rande.html). If this property is missing, the class will try to parse the region from the host name.
  - `awsCredential` (object | optional): optional [AWS credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html). If this property is missing, the class will try to use [AWS.CredentialProviderChain](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CredentialProviderChain.html) to retrieve the default credential. This property could be either an [AWS.Credentials](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Credentials.html) object or a normal object with the following properties:
    - `accessKeyId` (string): the [AWS access key ID](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys)
    - `secretAccessKey` (string): the [AWS secret access key](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys)

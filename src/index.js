@@ -9,7 +9,14 @@ exports.createESConnectorClass = function(opts) {
       super(host, config);
       if (config.awsRequestSigning) {
         this.awsRequestSigning = true;
-        this.awsRegion = config.awsRegion;
+        if (config.awsRegion) {
+          this.awsRegion = config.awsRegion;
+        } else {
+          let match = host.host.match(/\.([^.]+)\.es\.amazonaws\.com$/);
+          if (match) {
+            this.awsRegion = match[1];
+          }
+        }
         if (config.awsCredential) {
           if (config.awsCredential.constructor === AWS.Credentials) {
             this.awsCredential = config.awsCredential;
