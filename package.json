@@ -1,6 +1,6 @@
 {
   "name": "aws-es-utils",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "Utilities to connect with Amazon Elasticsearch Service (using AWS signed request)",
   "repository": "https://github.com/vickvu/node-aws-es-utils",
   "bugs": "https://github.com/vickvu/node-aws-es-utils/issues",
