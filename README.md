@@ -1,5 +1,7 @@
 # AWS Elasticsearch Utils
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/vickvu/node-aws-es-utils.svg)](https://greenkeeper.io/)
+
 [![NPM](https://nodei.co/npm/aws-es-utils.png)](https://npmjs.org/package/aws-es-utils)
 
 [![Build Status](https://travis-ci.org/vickvu/node-aws-es-utils.svg?branch=master)](https://travis-ci.org/vickvu/node-aws-es-utils)
