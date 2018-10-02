@@ -1,12 +1,5 @@
 {
   "env": {
-    "node4": {
-      "presets": [
-        ["env", {
-          "targets": { "node": "4" }
-        }]
-      ]
-    },
     "node6": {
       "presets": [
         ["env", {
@@ -18,6 +11,13 @@
       "presets": [
         ["env", {
           "targets": { "node": "8" }
+        }]
+      ]
+    },
+    "node10": {
+      "presets": [
+        ["env", {
+          "targets": { "node": "10" }
         }]
       ]
     },

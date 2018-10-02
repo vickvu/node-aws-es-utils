@@ -39,7 +39,7 @@
     "prepare": "make test build"
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=6"
   },
   "author": "Vick Vu <me@vick.vu>",
   "license": "Apache-2.0",

@@ -12,8 +12,8 @@ coverage-report:
 
 build:
 	rm -rf target
-	@BABEL_ENV=node4 ./node_modules/.bin/babel src --out-dir target/node4
 	@BABEL_ENV=node6 ./node_modules/.bin/babel src --out-dir target/node6
 	@BABEL_ENV=node8 ./node_modules/.bin/babel src --out-dir target/node8
+	@BABEL_ENV=node10 ./node_modules/.bin/babel src --out-dir target/node10
 
 .PHONY: lint, test, coverage-report, build
