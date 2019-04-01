@@ -54,6 +54,8 @@ describe('createESConnectorClass', function() {
       nock(ES_HOST, {
         reqheaders: {
           Host: 'es-host',
+          'Content-Type': 'application/json',
+          'header1': 'value1',
           'x-amz-date': '20170101T000000Z',
           'x-amz-security-token': AWS_SESSION_TOKEN
         }
@@ -76,6 +78,9 @@ describe('createESConnectorClass', function() {
             accessKeyId: AWS_ACCESS_KEY_ID,
             secretAccessKey: AWS_SECRET_ACCESS_KEY,
             sessionToken: AWS_SESSION_TOKEN
+          },
+          headers: {
+            header1: 'value1'
           }
         });
         return client.nodes.stats().then(function(resp) {
@@ -98,7 +103,10 @@ describe('createESConnectorClass', function() {
           host: ES_HOST,
           connectionClass: awsEs.createESConnectorClass({AWS, superClass}),
           awsRequestSigning: true,
-          awsRegion: 'ap-southeast-2'
+          awsRegion: 'ap-southeast-2',
+          headers: {
+            header1: 'value1'
+          }
         });
         return client.nodes.stats().then(function(resp) {
           resp.should.eql({healthy: true});

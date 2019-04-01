@@ -31,6 +31,7 @@ Extra [config](https://www.elastic.co/guide/en/elasticsearch/client/javascript-a
    - `accessKeyId` (string): the [AWS access key ID](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys)
    - `secretAccessKey` (string): the [AWS secret access key](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys)
    - `sessionToken` (string): the optional AWS session token (the string you received from AWS STS when you obtained temporary security credentials))
+ - `headers` (object): extra headers to send to ElasticSearch
 
  # License
  This project is licensed under the terms of the [Apache license](./LICENSE).

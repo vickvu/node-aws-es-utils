@@ -31,6 +31,9 @@ exports.createESConnectorClass = function(opts) {
           });
         }
       }
+      if (config.headers && typeof config.headers === 'object') {
+        this.esHeaders = config.headers;
+      }
     }
 
     makeESRequest(params, callback) {
@@ -46,6 +49,12 @@ exports.createESConnectorClass = function(opts) {
       awsReq.body = params.body;
       awsReq.headers['presigned-expires'] = false;
       awsReq.headers['Host'] = this.host.host;
+      awsReq.headers['Content-Type'] = 'application/json';
+      if (this.esHeaders) {
+        for (const header in this.esHeaders) {
+          awsReq.headers[header] = this.esHeaders[header];
+        }
+      }
       const awsSigner = new AWS.Signers.V4(awsReq, 'es');
       awsSigner.addAuthorization(this.awsCredential, new Date());
       const awsHttpClient = new AWS.NodeHttpClient();
